@@ -9,8 +9,7 @@ interface ServiceCardProps {
   date?: string;
   category?: string;
   isActive?: boolean;
-  onClick?: () => void;
-  serviceId?: string; // 👈 Add this
+  serviceId?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -20,7 +19,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   date,
   category,
   isActive = true,
-  onClick,
   serviceId,
 }) => {
   return (
@@ -31,7 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           : "scale-90 opacity-60 md:scale-100 md:opacity-100"
       }`}
     >
-      <div className="relative h-[480px] bg-gray-primary overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-gold/50 hover:scale-95 w-[320px] md:w-[380px] flex flex-col">
+      <div className="relative h-[480px] bg-gray-primary overflow-hidden group hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[380px] flex flex-col">
         {/* Image */}
         <div className="relative h-[220px] overflow-hidden flex-shrink-0">
           <img
@@ -64,7 +62,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             {description}
           </p>
 
-          {/* CTA Link - Navigate to Services page with service ID */}
+          {/* CTA Link */}
           <Link
             to={serviceId ? `/services?service=${serviceId}` : "/services"}
             className="inline-flex items-center gap-2 text-gold font-body font-semibold text-sm group-hover:gap-4 transition-all border-b border-gold/30 pb-1 w-fit"

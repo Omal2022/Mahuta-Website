@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { NAV_LINKS, COMPANY_NAME } from "../data/constants";
+import { NAV_LINKS } from "../data/constants";
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Keep scroll listener even though we don't use isScrolled for styling anymore
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Scroll listener can be removed if not needed
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-500 bg-white/95 backdrop-blur-lg shadow-lg`}
-    >
+    <nav className="fixed w-full z-50 transition-all duration-500 bg-white/95 backdrop-blur-lg shadow-lg">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -57,9 +55,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <Link to="/contact">
-              <button
-                className="px-6 py-2.5 font-body font-semibold transition-all bg-gold text-black hover:bg-gold/90"
-              >
+              <button className="px-6 py-2.5 font-body font-semibold transition-all bg-gold text-black hover:bg-gold/90">
                 Contact Us
               </button>
             </Link>

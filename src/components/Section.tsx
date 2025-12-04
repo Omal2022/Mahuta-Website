@@ -1,36 +1,43 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { SectionProps } from '../types';
+
+interface SectionProps {
+  children: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  dark?: boolean;
+  id?: string; // 👈 Add this
+}
 
 const Section: React.FC<SectionProps> = ({ 
+  children, 
   title, 
   subtitle, 
-  children, 
-  className = '', 
-  dark = false 
+  dark = false,
+  id 
 }) => {
   return (
-    <section className={`py-20 ${dark ? 'bg-slate-900' : 'bg-white'} ${className}`}>
+    <section 
+      id={id} // 👈 Add this
+      className={`relative py-20 ${dark ? 'bg-slate-900' : 'bg-white'}`}
+    >
       <div className="container mx-auto px-4 lg:px-8">
         {(title || subtitle) && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             {subtitle && (
-              <p className="text-gold font-heading tracking-widest uppercase text-sm mb-2">
+              <span className={`text-sm tracking-widest uppercase mb-4 block ${
+                dark ? 'text-gold' : 'text-gold'
+              }`}>
                 {subtitle}
-              </p>
+              </span>
             )}
             {title && (
-              <h2 className={`text-4xl lg:text-5xl font-display font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>
+              <h2 className={`text-4xl md:text-5xl font-display font-bold ${
+                dark ? 'text-white' : 'text-slate-900'
+              }`}>
                 {title}
               </h2>
             )}
-          </motion.div>
+          </div>
         )}
         {children}
       </div>

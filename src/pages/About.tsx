@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Target, Eye, Award, Users } from "lucide-react";
+import { Target, Eye, Award } from "lucide-react";
 import Section from "../components/Section";
 import {
   ABOUT_CONTENT,
