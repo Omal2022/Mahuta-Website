@@ -19,7 +19,6 @@ interface ServicesCarouselProps {
 
 const ServicesCarousel: React.FC<ServicesCarouselProps> = ({
   items,
-  onServiceClick,
   showHeader = true,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -142,8 +141,7 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({
                   date={item.date}
                   category={item.category}
                   isActive={index === currentIndex}
-                  onClick={() => onServiceClick?.(item.id)}
-                  serviceId={item.id} // 👈 Pass service ID for navigation
+                  serviceId={item.id}
                 />
               </div>
             ))}
@@ -158,19 +156,6 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({
         </div>
 
         <div className="flex justify-center items-center gap-6 mt-6">
-          {/* <button
-            onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
-            className={`md:hidden w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${
-              canScrollLeft
-                ? "border-gold text-gold active:bg-gold active:text-black"
-                : "border-gray-300 text-gray-300 cursor-not-allowed"
-            }`}
-            aria-label="Scroll left"
-          >
-            <ChevronLeft size={24} />
-          </button> */}
-
           <div className="flex gap-2">
             {items.map((_, index) => (
               <button
@@ -185,19 +170,6 @@ const ServicesCarousel: React.FC<ServicesCarouselProps> = ({
               />
             ))}
           </div>
-
-          {/* <button
-            onClick={() => scroll("right")}
-            disabled={!canScrollRight}
-            className={`md:hidden w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${
-              canScrollRight
-                ? "border-gold text-gold active:bg-gold active:text-black"
-                : "border-gray-300 text-gray-300 cursor-not-allowed"
-            }`}
-            aria-label="Scroll right"
-          >
-            <ChevronRight size={24} />
-          </button> */}
         </div>
       </div>
     </section>
