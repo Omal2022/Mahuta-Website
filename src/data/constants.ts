@@ -171,8 +171,8 @@ export const STATISTICS: Statistic[] = [
 
 export const CONTACT_INFO: ContactInfo = {
   address:
-    "Plot 123, Constitution Avenue, Central Business District, Abuja, Nigeria",
-  phone: "+234 (0) 9 123 4567",
+    "IYAHEN STREET OFF AIRPORT ROAD, BENIN CITY, EDO STATE, NIGERIA",
+  phone: "+234 (0) 807 841 1111",
   email: "info@mahutaoilgas.com",
   workingHours: "Monday - Friday: 8:00 AM - 5:00 PM",
 };

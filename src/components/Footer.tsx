@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold mt-1 flex-shrink-0" />
-                <span className="text-gray-400 font-body text-sm">
+                <span className="text-gray-400 font-body capitalize text-sm leading-relaxed">
                   {CONTACT_INFO.address}
                 </span>
               </li>
