@@ -171,7 +171,7 @@ export const STATISTICS: Statistic[] = [
 
 export const CONTACT_INFO: ContactInfo = {
   address:
-    "IYAHEN STREET OFF AIRPORT ROAD, BENIN CITY, EDO STATE, NIGERIA",
+    "Iyahen Street Off Airport Road, Benin City, Edo State, Nigeria",
   phone: "+234 (0) 807 841 1111",
   email: "info@mahutaoilgas.com",
   workingHours: "Monday - Friday: 8:00 AM - 5:00 PM",
